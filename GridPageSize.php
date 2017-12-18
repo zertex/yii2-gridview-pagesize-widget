@@ -113,5 +113,6 @@ class GridPageSize extends \yii\base\Widget
     	if (is_callable($this->callback)) {
     		return $this->callback;
     	}
+        return function(){};
     }
 }
