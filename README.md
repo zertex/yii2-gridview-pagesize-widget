@@ -39,7 +39,7 @@ composer require --prefer-dist zertex/yii2-gridview-pagesize-widget "*"
 <?= GridView::widget([
      'dataProvider' => $dataProvider,
      'filterModel' => $searchModel,
-		'filterSelector' => 'select[name="per-page"]',
+     'filterSelector' => 'select[name="per-page"]',
      'columns' => [
          ...
      ],
