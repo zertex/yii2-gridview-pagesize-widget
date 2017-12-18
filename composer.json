@@ -1,0 +1,23 @@
+{
+    "name": "zertex/yii2-gridview-pagesize-widget",
+    "description": "Widget for enabling dynamic page size selection on GridView",
+    "keywords": ["yii2", "extension", "widget", "grid-view", "page-size"],
+    "homepage": "https://github.com/zertex/yii2-gridview-pagesize-widget",
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zertex",
+            "email": "info@zertex.ru",
+            "homepage": "http://zertex.ru"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "zertex\\gridpagesize\\": ""
+        }
+    }
+}
