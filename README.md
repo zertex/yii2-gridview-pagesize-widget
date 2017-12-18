@@ -46,6 +46,18 @@ composer require --prefer-dist zertex/yii2-gridview-pagesize-widget "*"
  ]); ?>
 ~~~
 
+Callback функция
+
+~~~php
+<?php echo \zertex\gridpagesize\GridPageSize::widget([
+    'callback' => function($pageSize = 0) {
+        ...
+        echo $pageSize;
+        ...
+    }
+]); ?>
+~~~
+
 Конфигурация
 ------------
 
@@ -59,3 +71,4 @@ composer require --prefer-dist zertex/yii2-gridview-pagesize-widget "*"
 - `options`: HTML атрибуты элемента `<select>`
 - `labelOptions`: HTML атрибуты элемента `<label>`
 - `encodeLabel`: Кодировать текст
+- `callback`: Функция, вызываемая при изменении количества записей на страницу
