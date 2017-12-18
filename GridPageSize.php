@@ -77,6 +77,11 @@ class GridPageSize extends \yii\base\Widget
 	 */
 	public $encodeLabel = true;
 
+    /**
+     * Callback function on get new page size
+     */
+    public $callback;
+
 	/**
 	 * Runs the widget and render the output
 	 */
@@ -90,11 +95,23 @@ class GridPageSize extends \yii\base\Widget
 			$this->label = Html::encode($this->label);
 		}
 
-        $perPage = filter_input(INPUT_GET, $this->pageSizeParam, FILTER_VALIDATE_INT) ?: $this->defaultPageSize;
+        $perPage = filter_input(INPUT_GET, $this->pageSizeParam, FILTER_VALIDATE_INT);
+        if ($perPage) {
+            $this->doStuff()->__invoke($perPage);
+        }
+        else {
+            $perPage = $this->defaultPageSize;
+        }
 
 		$listHtml = Html::dropDownList($this->pageSizeParam, $perPage, array_combine($this->sizes, $this->sizes), $this->options);
 		$labelHtml = Html::label($this->label, $this->options['id'], $this->labelOptions);
 
 		return str_replace(['{list}', '{label}'], [$listHtml, $labelHtml], $this->template);
 	}
+
+    public function doStuff(){
+    	if (is_callable($this->callback)) {
+    		return $this->callback;
+    	}
+    }
 }
